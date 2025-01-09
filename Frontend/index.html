@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image and Name Upload Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Image and Name</h2>
+        <form id="uploadForm" action="/submit" method="POST" enctype="multipart/form-data">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="image">Upload Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+
+        <div id="imagePreview" style="display: none;">
+            <h3>Preview:</h3>
+            <img id="previewImage" alt="Image preview" width="200px">
+            <p id="imageName"></p>
+        </div>
+    </div>
+
+    <div id="card-container">
+        
+    </div>
+
+    <script src="app.js" type="application/javascript"></script>
+</body>
+</html>

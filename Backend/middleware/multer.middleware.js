@@ -5,7 +5,7 @@ const storage = multer.diskStorage({
         cb(null,"public");
     },
     filename: (req, file, cb)=>{
-        const uniqName = `sontu-${Date.now()}-${file.originalname}`; // change file name
+        const uniqName = `sontu-${Date.now()}-${Math.floor((Math.random() * 10) + 1)}.${file.originalname.split(".").pop()}`; // change file name
         cb(null, uniqName);
     }
 });

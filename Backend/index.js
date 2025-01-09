@@ -1,10 +1,14 @@
 import express from "express";
 const app = express();
-import cors from "cors";
+
 import router from "./routers/router.js";
+import connectDb from "./Config/dbConfig.js";
 
+import cors from 'cors';
+app.use(cors({
+    origin: '*', // Allow all domains
+}));
 
-app.use(cors());
 app.use(express.json());
 
 app.get("/", (req,res)=>{
@@ -13,8 +17,9 @@ app.get("/", (req,res)=>{
 
 app.use("/api",router);
 
-
 let port = process.env.PORT || 9090;
+
+connectDb();
 
 app.listen(port,()=>{
     console.log("=======================");
